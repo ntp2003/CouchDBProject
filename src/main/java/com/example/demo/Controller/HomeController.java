@@ -1,4 +1,4 @@
-package com.example.demo.Controler;
+package com.example.demo.Controller;
 
 import java.util.List;
 import java.util.Map;
@@ -28,7 +28,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 @Controller
-public class HomeControler {
+public class HomeController {
 	@Autowired
 	BookRepo bookRepo;
 	

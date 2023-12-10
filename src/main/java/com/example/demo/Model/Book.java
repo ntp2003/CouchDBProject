@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 
-/*@JsonIgnoreProperties({"id", "revision", "productType", "priceExcludingTax", "priceIncludingTax", "numberReviews"})*/
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Book {
