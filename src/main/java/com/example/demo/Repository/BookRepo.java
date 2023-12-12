@@ -35,7 +35,9 @@ public class BookRepo extends CouchDbRepositorySupport<Book> {
 			@View(name = "group-by-num_reviews", map = "function(doc) { if (doc.product_type == \'books\') { emit(doc.num_reviews,doc) } }") })
 	public BookPageDTO getBooks(GetBooksRequestBody requestBody) {
 		int skip = requestBody.getSize() * requestBody.getPage();
-		ViewQuery q = createQuery("group-by-" + requestBody.getSortProperty()).descending(requestBody.isDesc()).skip(skip).limit(requestBody.getSize()).includeDocs(true);
+		ViewQuery q = createQuery("group-by-" + requestBody.getSortProperty())
+													.descending(requestBody.isDesc())
+													.skip(skip).limit(requestBody.getSize()).includeDocs(true);
 		BookPageDTO result = new BookPageDTO();
 		ViewResult vr = db.queryView(q);
 		result.setBooks(vr.getRows().stream().map(i -> {
